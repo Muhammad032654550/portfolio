@@ -3,8 +3,26 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>MBAskills | Creative Portfolio</title>
-<link rel="stylesheet" href="style.css?v=11">
+<meta name="description" content="MBAskills provides Shopify development, WordPress websites, SEO optimization, AI automation, and custom HTML/CSS/JavaScript websites for business growth.">
+<meta name="keywords" content="Shopify development, WordPress websites, SEO services, AI developer, HTML CSS JavaScript website, freelance web designer">
+<meta name="robots" content="index, follow">
+<meta name="author" content="MBAskills">
+<link rel="canonical" href="https://mbaskills.com/">
+<meta property="og:type" content="website">
+<meta property="og:title" content="MBAskills | Shopify, WordPress, SEO & AI Developer">
+<meta property="og:description" content="Modern high-converting websites, SEO-focused development, and AI automation solutions for growing brands.">
+<meta property="og:url" content="https://mbaskills.com/">
+<meta property="og:image" content="https://mbaskills.com/assets/images/hero.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="MBAskills | Shopify, WordPress, SEO & AI Developer">
+<meta name="twitter:description" content="Shopify, WordPress, SEO, AI automation, and custom coded websites built for growth.">
+<title>MBAskills | Shopify, WordPress, SEO & AI Developer</title>
+<link rel="preload" as="image" href="assets/images/hero.jpg" fetchpriority="high">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Manrope:wght@400;500;600;700&display=swap">
+<link rel="stylesheet" href="style.css?v=20">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 </head>
 <body>
@@ -37,7 +55,7 @@
 
 <header class="navbar" aria-label="Main navigation">
   <div class="logo-container">
-    <img src="assets/images/logo.png" class="logo-img" alt="MBAskills logo">
+    <img src="assets/images/logo.png" class="logo-img" alt="MBAskills logo" loading="eager" decoding="async" fetchpriority="high">
     <span class="brand">MBAskills</span>
   </div>
 
@@ -51,6 +69,17 @@
       <li><a href="#about">About</a></li>
       <li><a href="#services">Services</a></li>
       <li><a href="#portfolio">Portfolio</a></li>
+      <li class="nav-item-has-children">
+        <a href="samples.html">Samples <i class="fas fa-chevron-down" aria-hidden="true"></i></a>
+        <ul class="nav-submenu">
+          <li><a href="samples.html#shopify-design">Shopify Store</a></li>
+          <li><a href="samples.html#wordpress-design">WordPress Store</a></li>
+          <li><a href="samples.html#html-design">HTML/CSS Store</a></li>
+          <li><a href="samples.html#pos-design">POS Software</a></li>
+          <li><a href="samples.html#multipurpose-design">Multi-Purpose Sites</a></li>
+          <li><a href="samples.html#mobile-app-design">Mobile Apps</a></li>
+        </ul>
+      </li>
       <li><a href="#contact">Contact</a></li>
     </ul>
   </nav>
@@ -85,7 +114,7 @@
   </div>
 
   <div class="hero-right">
-    <img src="assets/images/hero.jpg" alt="Creative work showcase" class="tilt-card tilt-strong">
+    <img src="assets/images/hero.jpg" alt="Creative work showcase" class="tilt-card tilt-strong" loading="eager" decoding="async" fetchpriority="high">
   </div>
 </section>
 
@@ -125,7 +154,7 @@
   <h2>About MBAskills</h2>
 
   <div class="about-container">
-    <img src="assets/images/about.jpg" alt="Muhammad Ahsan" class="tilt-card">
+    <img src="assets/images/about.jpg" alt="Muhammad Ahsan" class="tilt-card" loading="lazy" decoding="async">
 
     <div>
       <p>
@@ -184,9 +213,9 @@
     </div>
 
     <div class="service-card tilt-card">
-      <i class="fas fa-video"></i>
-      <h3>Video Editing</h3>
-      <p>Short-form reels and ad edits with attention-grabbing hooks, pacing, and branded storytelling flow.</p>
+      <i class="fas fa-robot"></i>
+      <h3>AI Developer</h3>
+      <p>AI-powered solutions, smart automations, chatbot workflows, and productivity systems for modern businesses.</p>
     </div>
 
     <div class="service-card tilt-card">
@@ -200,6 +229,18 @@
       <h3>WordPress Websites</h3>
       <p>Responsive business websites with improved speed, SEO fundamentals, and professional content architecture.</p>
     </div>
+
+    <div class="service-card tilt-card">
+      <i class="fas fa-chart-line"></i>
+      <h3>SEO Optimization</h3>
+      <p>Technical SEO, on-page optimization, schema setup, and content structure improvements to boost search visibility.</p>
+    </div>
+
+    <div class="service-card tilt-card">
+      <i class="fas fa-code"></i>
+      <h3>HTML, CSS & JavaScript Websites</h3>
+      <p>Fast, responsive, and modern custom-coded websites built for performance, scalability, and conversion goals.</p>
+    </div>
   </div>
 </section>
 
@@ -210,30 +251,111 @@
     and brand presentation that supports trust and purchase decisions.
   </p>
 
-  <div class="portfolio-grid" id="homePortfolioGrid">
-    <article class="portfolio-media tilt-card"><img src="assets/images/1.png" alt="Portfolio image 1" loading="lazy"></article>
-    <article class="portfolio-media tilt-card"><img src="assets/images/2.png" alt="Portfolio image 2" loading="lazy"></article>
-    <article class="portfolio-media tilt-card"><img src="assets/images/3.png" alt="Portfolio image 3" loading="lazy"></article>
-    <article class="portfolio-media tilt-card"><img src="assets/images/4.png" alt="Portfolio image 4" loading="lazy"></article>
-    <article class="portfolio-media tilt-card"><img src="assets/images/project1.jpg" alt="Portfolio image 5" loading="lazy"></article>
-    <article class="portfolio-media tilt-card"><img src="assets/images/project2.jpg" alt="Portfolio image 6" loading="lazy"></article>
-    <article class="portfolio-media tilt-card"><img src="assets/images/project3.jpg" alt="Portfolio image 7" loading="lazy"></article>
-    <article class="portfolio-media tilt-card"><img src="assets/images/project4.jpg" alt="Portfolio image 8" loading="lazy"></article>
+  <div class="samples-showcase" id="portfolio-samples">
+    <a class="sample-card sample-card-link tilt-card" id="sample-shopify-store" href="samples.html#shopify-design">
+      <span class="sample-tag">E-Commerce</span>
+      <h3>Shopify Store Design</h3>
+      <p>Premium, fast, and conversion-first Shopify stores with sales-focused product pages and trust blocks.</p>
+    </a>
+    <a class="sample-card sample-card-link tilt-card" id="sample-wordpress-store" href="samples.html#wordpress-design">
+      <span class="sample-tag">E-Commerce</span>
+      <h3>WordPress + WooCommerce Store</h3>
+      <p>Scalable WooCommerce websites with clean category structure, checkout UX, and SEO-ready setup.</p>
+    </a>
+    <a class="sample-card sample-card-link tilt-card" id="sample-html-store" href="samples.html#html-design">
+      <span class="sample-tag">E-Commerce</span>
+      <h3>Custom HTML/CSS Storefront</h3>
+      <p>Custom-coded storefront layouts for brands needing unique design freedom and fast loading speed.</p>
+    </a>
+    <a class="sample-card sample-card-link tilt-card" id="sample-pos-software" href="samples.html#pos-design">
+      <span class="sample-tag">Business</span>
+      <h3>POS Software UI</h3>
+      <p>Modern POS interfaces with cashier-first workflows, readable dashboards, and better checkout experience.</p>
+    </a>
+    <a class="sample-card sample-card-link tilt-card" id="sample-multipurpose-sites" href="samples.html#multipurpose-design">
+      <span class="sample-tag">Multi-Purpose</span>
+      <h3>Multi-Purpose Websites</h3>
+      <p>Business websites for agencies, restaurants, education, healthcare, and service brands.</p>
+    </a>
+    <a class="sample-card sample-card-link tilt-card" id="sample-mobile-apps" href="samples.html#mobile-app-design">
+      <span class="sample-tag">Mobile</span>
+      <h3>Mobile App Design</h3>
+      <p>Attractive app UI/UX screens focused on onboarding, engagement, and smooth user flow.</p>
+    </a>
+  </div>
 
-    <article class="portfolio-media tilt-card portfolio-more"><img src="assets/images/project5.jpg" alt="Portfolio image 9" loading="lazy"></article>
-    <article class="portfolio-media tilt-card portfolio-more"><img src="assets/images/project6.jpg" alt="Portfolio image 10" loading="lazy"></article>
-    <article class="portfolio-media tilt-card portfolio-more"><img src="assets/images/project7.jpg" alt="Portfolio image 11" loading="lazy"></article>
-    <article class="portfolio-media tilt-card portfolio-more"><img src="assets/images/Black and Green Modern T-Shirt Fashion Instagram Post.png" alt="Portfolio image 12" loading="lazy"></article>
-    <article class="portfolio-media tilt-card portfolio-more"><img src="assets/images/ChatGPT Image Mar 6, 2026, 04_37_47 PM.png" alt="Portfolio image 13" loading="lazy"></article>
-    <article class="portfolio-media tilt-card portfolio-more"><img src="assets/images/Gemini_Generated_Image_2u78ht2u78ht2u78.png" alt="Portfolio image 14" loading="lazy"></article>
-    <article class="portfolio-media tilt-card portfolio-more"><img src="assets/images/purple modern game instagram post.jpg" alt="Portfolio image 15" loading="lazy"></article>
-    <article class="portfolio-media tilt-card portfolio-more"><img src="assets/images/Red White Bold Modern Shoes Brand Desktop Prototype.png" alt="Portfolio image 16" loading="lazy"></article>
-    <article class="portfolio-media tilt-card portfolio-more"><img src="assets/images/2275-86-705799-product-1.webp" alt="Portfolio image 17" loading="lazy"></article>
-    <article class="portfolio-media tilt-card portfolio-more"><img src="assets/images/kitandace.webp" alt="Portfolio image 18" loading="lazy"></article>
+  <div class="samples-cta">
+    <p>Want a store or app like these samples? Let&apos;s build your project next.</p>
+    <a href="#contact" class="btn-primary">Contact Me Now</a>
+  </div>
+
+  <div class="portfolio-highlights">
+    <article class="highlight-card tilt-card">
+      <h3>E-Commerce Growth Project</h3>
+      <p>Designed and developed a conversion-focused online store with improved navigation, clearer product hierarchy, and stronger checkout trust signals.</p>
+      <span>Result Focus: Better user journey + higher purchase intent</span>
+    </article>
+    <article class="highlight-card tilt-card">
+      <h3>Business Website Redesign</h3>
+      <p>Built a modern, responsive website with strong content structure, improved speed, and SEO-friendly technical setup.</p>
+      <span>Result Focus: Stronger search presence + better lead quality</span>
+    </article>
+    <article class="highlight-card tilt-card">
+      <h3>AI + Automation Integration</h3>
+      <p>Created workflow automation and chatbot-ready experiences to reduce manual tasks and improve response speed.</p>
+      <span>Result Focus: Better efficiency + faster customer interaction</span>
+    </article>
   </div>
 
   <div class="portfolio-actions">
-    <button class="btn-secondary portfolio-toggle-btn" type="button" aria-expanded="false">Show More</button>
+    <a href="samples.html" class="btn-secondary">View Full Samples</a>
+  </div>
+</section>
+
+<section class="features">
+  <h2>How We Deliver Results</h2>
+  <p class="section-intro">
+    A clear, step-by-step process to launch high-performing websites with better UX, stronger SEO, and faster conversion.
+  </p>
+  <div class="feature-grid process-grid">
+    <article class="feature-card tilt-card">
+      <h3>1. Strategy + SEO Audit</h3>
+      <p>We map your goals, target audience, and keyword opportunities before design starts.</p>
+    </article>
+    <article class="feature-card tilt-card">
+      <h3>2. UI/UX + Content Structure</h3>
+      <p>We create modern layouts with strong hierarchy, clean CTAs, and intent-based section flow.</p>
+    </article>
+    <article class="feature-card tilt-card">
+      <h3>3. Fast Development</h3>
+      <p>We build responsive Shopify, WordPress, or custom HTML/CSS/JavaScript websites optimized for speed.</p>
+    </article>
+    <article class="feature-card tilt-card">
+      <h3>4. Launch + Optimization</h3>
+      <p>After launch, we improve SEO, refine conversion points, and scale based on data.</p>
+    </article>
+  </div>
+</section>
+
+<section class="faq-section" id="faq">
+  <h2>Frequently Asked Questions</h2>
+  <div class="faq-grid">
+    <details class="faq-item">
+      <summary>Do you build Shopify and WordPress websites?</summary>
+      <p>Yes. We build and optimize both Shopify stores and WordPress websites based on your business model.</p>
+    </details>
+    <details class="faq-item">
+      <summary>Do you provide SEO services?</summary>
+      <p>Yes. We handle technical SEO, on-page optimization, site structure, and schema setup for better ranking potential.</p>
+    </details>
+    <details class="faq-item">
+      <summary>Can you build custom HTML, CSS, and JavaScript websites?</summary>
+      <p>Absolutely. We create fast, modern, fully custom coded websites with clean UI and scalable structure.</p>
+    </details>
+    <details class="faq-item">
+      <summary>Do you provide AI automation solutions?</summary>
+      <p>Yes. We design AI-powered workflows and automation systems to improve response time and productivity.</p>
+    </details>
   </div>
 </section>
 
@@ -260,9 +382,69 @@
   <p>&copy; 2022 MBAskills - Creative Digital Studio</p>
 </footer>
 
-<script src="script.js?v=8"></script>
+<script src="script.js?v=9" defer></script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "ProfessionalService",
+      "name": "MBAskills",
+      "url": "https://mbaskills.com/",
+      "description": "Creative web design and development services including Shopify, WordPress, SEO, AI solutions, and custom-coded websites.",
+      "areaServed": "Global",
+      "serviceType": [
+        "Shopify Development",
+        "WordPress Development",
+        "SEO Optimization",
+        "AI Developer Services",
+        "HTML CSS JavaScript Website Development"
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Do you build Shopify and WordPress websites?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. We build and optimize both Shopify stores and WordPress websites based on your business model."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Do you provide SEO services?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. We handle technical SEO, on-page optimization, site structure, and schema setup for better ranking potential."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can you build custom HTML, CSS, and JavaScript websites?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Absolutely. We create fast, modern, fully custom coded websites with clean UI and scalable structure."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Do you provide AI automation solutions?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. We design AI-powered workflows and automation systems to improve response time and productivity."
+          }
+        }
+      ]
+    }
+  ]
+}
+</script>
 </body>
 </html>
+
+
 
 
 

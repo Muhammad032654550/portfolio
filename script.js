@@ -8,15 +8,23 @@ const heroVisual = document.querySelector(".hero-right img");
 const orbLeft = document.querySelector(".orb-left");
 const orbRight = document.querySelector(".orb-right");
 const hasFinePointer = window.matchMedia("(pointer: fine)").matches;
+const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
-window.addEventListener("load", () => {
-  if (preloader) {
-    preloader.classList.add("hidden");
-    setTimeout(() => preloader.remove(), 500);
+const hidePreloader = () => {
+  if (!preloader || preloader.classList.contains("hidden")) {
+    return;
   }
+  preloader.classList.add("hidden");
+  window.setTimeout(() => preloader.remove(), 500);
+};
+
+document.addEventListener("DOMContentLoaded", () => {
+  window.setTimeout(hidePreloader, 1600);
 });
 
-window.addEventListener("scroll", () => {
+window.addEventListener("load", hidePreloader, { once: true });
+
+const updateScrollUI = () => {
   const top = window.scrollY;
   const height = document.documentElement.scrollHeight - window.innerHeight;
   const progress = height > 0 ? (top / height) * 100 : 0;
@@ -28,15 +36,41 @@ window.addEventListener("scroll", () => {
   if (toTopBtn) {
     toTopBtn.classList.toggle("visible", top > 320);
   }
+};
 
-  sections.forEach((section) => {
-    const offset = section.offsetTop - 300;
-    const sectionHeight = section.offsetHeight;
-    if (top > offset && top < offset + sectionHeight) {
-      section.classList.add("show");
+let scrollTicking = false;
+window.addEventListener(
+  "scroll",
+  () => {
+    if (scrollTicking) {
+      return;
     }
-  });
-});
+    scrollTicking = true;
+    window.requestAnimationFrame(() => {
+      updateScrollUI();
+      scrollTicking = false;
+    });
+  },
+  { passive: true }
+);
+
+updateScrollUI();
+
+if (sections.length > 0 && "IntersectionObserver" in window) {
+  const sectionObserver = new IntersectionObserver(
+    (entries, observer) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("show");
+          observer.unobserve(entry.target);
+        }
+      });
+    },
+    { threshold: 0.2, rootMargin: "0px 0px -8% 0px" }
+  );
+
+  sections.forEach((section) => sectionObserver.observe(section));
+}
 
 if (toTopBtn) {
   toTopBtn.addEventListener("click", () => {
@@ -55,14 +89,21 @@ if (counters.length > 0) {
         const el = entry.target;
         const target = Number(el.dataset.target || 0);
         const isPercent = el.classList.contains("percent");
+
+        if (prefersReducedMotion) {
+          el.textContent = isPercent ? `${target}%` : `${target}+`;
+          observer.unobserve(el);
+          return;
+        }
+
         let current = 0;
         const step = Math.max(1, Math.ceil(target / 45));
 
-        const timer = setInterval(() => {
+        const timer = window.setInterval(() => {
           current += step;
           if (current >= target) {
             current = target;
-            clearInterval(timer);
+            window.clearInterval(timer);
           }
           el.textContent = isPercent ? `${current}%` : `${current}+`;
         }, 24);
@@ -76,7 +117,7 @@ if (counters.length > 0) {
   counters.forEach((counter) => counterObserver.observe(counter));
 }
 
-if (hasFinePointer) {
+if (hasFinePointer && !prefersReducedMotion) {
   tiltCards.forEach((card) => {
     const strong = card.classList.contains("tilt-strong");
     const tiltLimit = strong ? 18 : 12;
@@ -97,9 +138,13 @@ if (hasFinePointer) {
     });
   });
 
-  window.addEventListener("mousemove", (event) => {
-    const xRatio = event.clientX / window.innerWidth - 0.5;
-    const yRatio = event.clientY / window.innerHeight - 0.5;
+  let mouseTicking = false;
+  let mouseX = 0;
+  let mouseY = 0;
+
+  const applyParallax = () => {
+    const xRatio = mouseX / window.innerWidth - 0.5;
+    const yRatio = mouseY / window.innerHeight - 0.5;
 
     if (heroVisual) {
       heroVisual.style.transform = `translate3d(${xRatio * 10}px, ${yRatio * 10}px, 0)`;
@@ -112,7 +157,25 @@ if (hasFinePointer) {
     if (orbRight) {
       orbRight.style.transform = `translate3d(${xRatio * 18}px, ${yRatio * 14}px, 0)`;
     }
-  });
+
+    mouseTicking = false;
+  };
+
+  window.addEventListener(
+    "mousemove",
+    (event) => {
+      mouseX = event.clientX;
+      mouseY = event.clientY;
+
+      if (mouseTicking) {
+        return;
+      }
+
+      mouseTicking = true;
+      window.requestAnimationFrame(applyParallax);
+    },
+    { passive: true }
+  );
 }
 
 const navbars = document.querySelectorAll(".navbar");
