@@ -1,464 +1,124 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="MBAskills provides Shopify development, WordPress websites, SEO optimization, AI automation, and custom HTML/CSS/JavaScript websites for business growth.">
-<meta name="keywords" content="Shopify development, WordPress websites, SEO services, AI developer, HTML CSS JavaScript website, freelance web designer">
-<meta name="robots" content="index, follow">
-<meta name="author" content="MBAskills">
-<link rel="canonical" href="https://mbaskills.com/">
-<meta property="og:type" content="website">
-<meta property="og:title" content="MBAskills | Shopify, WordPress, SEO & AI Developer">
-<meta property="og:description" content="Modern high-converting websites, SEO-focused development, and AI automation solutions for growing brands.">
-<meta property="og:url" content="https://mbaskills.com/">
-<meta property="og:image" content="https://mbaskills.com/assets/images/hero.jpg">
-<meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="MBAskills | Shopify, WordPress, SEO & AI Developer">
-<meta name="twitter:description" content="Shopify, WordPress, SEO, AI automation, and custom coded websites built for growth.">
-<title>MBAskills | Shopify, WordPress, SEO & AI Developer</title>
-<link rel="preload" as="image" href="assets/images/hero.jpg" fetchpriority="high">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Manrope:wght@400;500;600;700&display=swap">
-<link rel="stylesheet" href="style.css?v=20">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Trivox Solutions | Web Development, SEO Services & Business Management Agency</title>
+  <meta name="description" content="Trivox Solutions is a growth-focused agency offering web development, SEO services, and business management solutions to help companies scale faster." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Sora:wght@500;700;800&display=swap" rel="stylesheet" />
+  <link rel="icon" type="image/png" href="assets/logo.png" />
+  <link rel="apple-touch-icon" href="assets/logo.png" />
+  <link rel="stylesheet" href="styles.css" />
+  
 </head>
 <body>
+  <div class="preloader" id="preloader" aria-hidden="true"><div class="preloader-core"><span class="preloader-word" id="preloaderWord">TRIVOX</span></div></div>
+  <div class="scroll-progress" id="scrollProgress"></div>
+  <div class="cursor-3d" id="cursor3d" aria-hidden="true"></div>
 
-<div id="preloader" class="preloader" aria-hidden="true">
-  <div class="loader-core">
-    <div class="logo-loader-wrap" aria-hidden="true">
-      <img src="assets/images/logo.png" alt="MBAskills loading logo" class="loader-logo">
-      <div class="loader-dots">
-        <span class="dot dot1"></span>
-        <span class="dot dot2"></span>
-        <span class="dot dot3"></span>
-        <span class="dot dot4"></span>
+  <header class="site-header" id="siteHeader">
+    <div class="container nav-wrap">
+      <a class="brand" href="index.html" aria-label="Trivox Home"><img src="assets/Untitled design.png" alt="Trivox Solutions logo" fetchpriority="high" /></a>
+      <button class="menu-toggle" id="menuToggle" aria-label="Toggle navigation">Menu</button>
+      <nav class="nav" id="nav" aria-label="Main navigation">
+        <a href="index.html" class="active">Home</a><a href="services.html">Services</a><a href="about.html">About</a><a href="contact.html">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero container reveal">
+      <div class="hero-3d-bg" aria-hidden="true"><span class="hero-ring ring-a"></span><span class="hero-ring ring-b"></span><span class="hero-ring ring-c"></span></div>
+      <div class="hero-grid">
+        <div class="hero-copy">
+          <p class="kicker">Premium Digital Growth Agency</p>
+          <h1><span>Build</span> a brand that looks elite, ranks high, and scales fast.</h1>
+          <p>Trivox Solutions blends web development, SEO services, and business management into one growth engine for serious businesses that want measurable wins.</p>
+          <div class="actions"><a class="btn" href="contact.html">Book Strategy Call</a><a class="btn ghost" href="services.html">Explore Services</a></div>
+        </div>
+        <div class="hero-media tilt" id="hero3dCard">
+          <div class="hero-media-glow" aria-hidden="true"></div>
+          <div class="logo-3d-wrap"><img src="assets/Untitled design.png" class="logo-3d" alt="3D Trivox logo" fetchpriority="high" /></div>
+        </div>
       </div>
+      <div class="kpi-strip">
+        <article><h3 data-count="120">120+</h3><p>Projects Delivered</p></article>
+        <article><h3 data-count="92">92%</h3><p>Client Retention</p></article>
+        <article><h3 data-count="38">38%</h3><p>Avg Conversion Lift</p></article>
+        <article><h3 data-count="4.9">4.9/5</h3><p>Client Rating</p></article>
+      </div>
+    </section>
+
+    <section class="container section reveal">
+      <h2>Feature-Rich Growth Stack</h2>
+      <p class="section-lead">From strategy to launch to scale, we cover each layer your business needs to grow fast without sacrificing brand quality.</p>
+      <div class="feature-grid">
+        <article class="gradient-card media-card"><img src="assets/pexels-kindelmedia-7688460.jpg" alt="Team planning web development strategy" loading="eager" decoding="async" /><div><h3>Web Development</h3><p>Fast websites with premium visuals, conversion-first UX, and structured technical architecture.</p></div></article>
+        <article class="gradient-card media-card"><img src="assets/pexels-kadiremir-31148083.jpg" alt="SEO analytics dashboard and growth insights" loading="lazy" decoding="async" /><div><h3>SEO Services</h3><p>Technical, on-page, and content SEO systems designed to compound high-intent organic traffic.</p></div></article>
+        <article class="gradient-card media-card"><img src="assets/pexels-mart-production-7667442.jpg" alt="Business management planning session" loading="lazy" decoding="async" /><div><h3>Business Management</h3><p>Operational design and KPI systems so scaling teams execute with clarity and speed.</p></div></article>
+      </div>
+    </section>
+
+    <section class="container section reveal">
+      <h2>Trusted by Growing Teams</h2>
+      <div class="logo-cloud"><span>SaaS</span><span>Healthcare</span><span>Finance</span><span>Real Estate</span><span>Ecommerce</span><span>Education</span></div>
+      <div class="stats-grid" style="margin-top:.85rem">
+        <article><h3 data-count="86">86%</h3><p>Faster launch cycles</p></article>
+        <article><h3 data-count="97">97%</h3><p>On-time delivery rate</p></article>
+        <article><h3 data-count="65">65+</h3><p>SEO campaigns shipped</p></article>
+        <article><h3 data-count="44">44+</h3><p>Long-term clients</p></article>
+      </div>
+    </section>
+
+    <section class="container section reveal">
+      <h2>Media Highlights</h2>
+      <div class="media-mosaic">
+        <img src="assets/pexels-steve-29506601.jpg" alt="Corporate website redesign visuals" loading="lazy" decoding="async" />
+        <img src="assets/pexels-artyusufpatel-8998289.jpg" alt="SEO strategy workboard and notes" loading="lazy" decoding="async" />
+        <img src="assets/pexels-n-voitkevich-6214382.jpg" alt="Operations dashboard and business workflow review" loading="lazy" decoding="async" />
+        <img src="assets/maik-jonietz-nZcMWOKAJrY-unsplash.jpg" alt="Team success celebration" loading="lazy" decoding="async" />
+      </div>
+    </section>
+
+    <section class="container section reveal">
+      <h2>How We Work</h2>
+      <div class="timeline">
+        <article><span>01</span><h3>Discovery</h3><p>We align goals, audience, and offers.</p></article>
+        <article><span>02</span><h3>Blueprint</h3><p>We map UX, SEO structure, and workflows.</p></article>
+        <article><span>03</span><h3>Execution</h3><p>We build, optimize, and QA every touchpoint.</p></article>
+        <article><span>04</span><h3>Scale</h3><p>We iterate weekly using live performance data.</p></article>
+      </div>
+    </section>
+
+    <section class="container section reveal">
+      <div class="reviews-head"><button id="reviewsPrev" class="reviews-btn side" type="button" aria-label="Previous reviews">&larr;</button><h2>Client Feedback</h2><button id="reviewsNext" class="reviews-btn side" type="button" aria-label="Next reviews">&rarr;</button></div>
+      <div class="testimonials" id="testimonialsRail">
+        <article><p>"Trivox transformed our web presence and brought serious lead quality."</p><h4>Founder, SaaS Brand</h4></article>
+        <article><p>"SEO results became visible in weeks, and conversions improved month over month."</p><h4>Director, eCommerce Firm</h4></article>
+        <article><p>"Their business management support helped us scale delivery without chaos."</p><h4>CEO, Service Company</h4></article>
+        <article><p>"Our website now feels premium and brings better qualified inquiries."</p><h4>Head of Growth, Agency Partner</h4></article>
+      </div>
+    </section>
+
+    <section class="container section reveal cta-banner">
+      <h2>Ready to scale with a faster, smarter digital system?</h2>
+      <p>Let Trivox Solutions build your next growth engine with strategy, design, execution, and measurable outcomes.</p>
+      <a class="btn" href="contact.html">Start Your Project</a>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-wrap-rich">
+      <div class="footer-col"><h4>Trivox Solutions</h4><p>Web Development, SEO Services, and Business Management for growth-focused brands.</p><div class="social-row"><a href="#" aria-label="Instagram" class="icon-link"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"></rect><circle cx="12" cy="12" r="4"></circle><circle cx="17.2" cy="6.8" r="1.2"></circle></svg></a><a href="#" aria-label="LinkedIn" class="icon-link"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="3"></rect><rect x="7" y="10" width="2.5" height="7"></rect><circle cx="8.2" cy="7.4" r="1.3"></circle><path d="M12 10h2.4v1.1c.5-.8 1.4-1.3 2.8-1.3 2.2 0 3.3 1.3 3.3 3.8V17H18v-3c0-1.1-.4-1.8-1.5-1.8-1 0-1.7.7-1.7 2V17H12z"></path></svg></a><a href="#" aria-label="Facebook" class="icon-link"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 8h2V5h-2.4C11.6 5 10 6.5 10 8.8V11H8v3h2v5h3v-5h2.5l.5-3H13v-1.6c0-.9.4-1.4 1-1.4z"></path></svg></a></div></div>
+      <div class="footer-col"><h4>Pages</h4><div class="footer-links"><a href="index.html">Home</a><a href="services.html">Services</a><a href="about.html">About</a><a href="contact.html">Contact</a></div></div>
+      <div class="footer-col"><h4>Contact Info</h4><div class="footer-contact-list"><p><span class="inline-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 6h16v12H4z"></path><path d="m4 7 8 6 8-6"></path></svg></span>hello@trivoxsolutions.com</p><p><span class="inline-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6.6 10.8a15.2 15.2 0 0 0 6.6 6.6l2.2-2.2c.2-.2.5-.3.8-.2a12 12 0 0 0 3.8.6c.4 0 .7.3.7.7V20c0 .4-.3.7-.7.7C11.9 20.7 3.3 12.1 3.3 1.7c0-.4.3-.7.7-.7H7.5c.4 0 .7.3.7.7.1 1.3.3 2.6.7 3.8.1.3 0 .6-.2.8z"></path></svg></span>+1 (000) 000-0000</p><p><span class="inline-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2C8.1 2 5 5.1 5 9c0 5 7 13 7 13s7-8 7-13c0-3.9-3.1-7-7-7zm0 9.5A2.5 2.5 0 1 1 12 6a2.5 2.5 0 0 1 0 5.5z"></path></svg></span>Worldwide Remote Service</p></div></div>
     </div>
-    <h3>MBAskills</h3>
-</div>
-</div>
+    <div class="container footer-bottom">&copy; 2022 Trivox Solutions. All rights reserved.</div>
+  </footer>
 
-<div class="scroll-progress-wrap">
-  <span id="scrollProgress" class="scroll-progress"></span>
-</div>
-
-<button id="toTopBtn" class="to-top" aria-label="Back to top">
-  <i class="fas fa-arrow-up"></i>
-</button>
-
-<div class="glow-orb orb-left"></div>
-<div class="glow-orb orb-right"></div>
-
-<header class="navbar" aria-label="Main navigation">
-  <div class="logo-container">
-    <img src="assets/images/logo.png" class="logo-img" alt="MBAskills logo" loading="eager" decoding="async" fetchpriority="high">
-    <span class="brand">MBAskills</span>
-  </div>
-
-  <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false" type="button">
-    <i class="fas fa-bars"></i>
-  </button>
-
-  <nav class="site-nav">
-    <ul class="nav-menu">
-      <li><a href="#home">Home</a></li>
-      <li><a href="#about">About</a></li>
-      <li><a href="#services">Services</a></li>
-      <li><a href="#portfolio">Portfolio</a></li>
-      <li class="nav-item-has-children">
-        <a href="samples.html">Samples <i class="fas fa-chevron-down" aria-hidden="true"></i></a>
-        <ul class="nav-submenu">
-          <li><a href="samples.html#shopify-design">Shopify Store</a></li>
-          <li><a href="samples.html#wordpress-design">WordPress Store</a></li>
-          <li><a href="samples.html#html-design">HTML/CSS Store</a></li>
-          <li><a href="samples.html#pos-design">POS Software</a></li>
-          <li><a href="samples.html#multipurpose-design">Multi-Purpose Sites</a></li>
-          <li><a href="samples.html#mobile-app-design">Mobile Apps</a></li>
-        </ul>
-      </li>
-      <li><a href="#contact">Contact</a></li>
-    </ul>
-  </nav>
-
-  <a href="#contact" class="hire-btn">Hire Me</a>
-</header>
-
-<section id="home" class="hero">
-  <div class="hero-left">
-    <div class="hero-badge-row">
-      <span class="hero-badge"><i class="fas fa-award"></i> Premium Design Quality</span>
-      <span class="hero-badge"><i class="fas fa-bolt"></i> Fast Turnaround</span>
-    </div>
-
-    <h1>Build Powerful Digital Experiences With <span>MBAskills</span></h1>
-
-    <p>
-      We design and develop complete brand experiences that look premium, load fast, and convert visitors into paying customers.
-      Every visual block, headline, and interaction is crafted to communicate trust, quality, and clarity for modern startups,
-      ecommerce founders, and service businesses that want to stand out in competitive markets.
-    </p>
-
-    <p>
-      From visual identity and campaign creatives to high-performing websites, our workflow blends design strategy,
-      storytelling, and performance optimization so your business not only looks better but also grows faster with measurable outcomes.
-    </p>
-
-    <div class="hero-buttons">
-      <a href="#portfolio" class="btn-primary">View Portfolio</a>
-      <a href="#contact" class="btn-secondary">Start a Project</a>
-    </div>
-  </div>
-
-  <div class="hero-right">
-    <img src="assets/images/hero.jpg" alt="Creative work showcase" class="tilt-card tilt-strong" loading="eager" decoding="async" fetchpriority="high">
-  </div>
-</section>
-
-<section class="trust">
-  <h2>Trusted Digital Solutions</h2>
-  <p class="section-intro">
-    Businesses partner with MBAskills because we combine clean design direction with practical execution,
-    delivering assets that look world-class and perform strongly across web, social, and ecommerce channels.
-  </p>
-
-  <div class="trust-grid">
-    <div>
-      <h3 class="counter" data-target="165">0+</h3>
-      <p>Projects Completed</p>
-    </div>
-    <div>
-      <h3 class="counter" data-target="137">0+</h3>
-      <p>Happy Clients</p>
-    </div>
-    <div>
-      <h3 class="counter" data-target="3">0+</h3>
-      <p>Years Experience</p>
-    </div>
-    <div>
-      <h3 class="counter percent" data-target="98">0%</h3>
-      <p>Client Retention</p>
-    </div>
-  </div>
-
-  <div class="client-strip">
-    <p>Ready to make your brand look premium and convert better?</p>
-    <a href="#contact" class="btn-primary">Book a Free Consultation</a>
-  </div>
-</section>
-
-<section id="about" class="about">
-  <h2>About MBAskills</h2>
-
-  <div class="about-container">
-    <img src="assets/images/about.jpg" alt="Muhammad Ahsan" class="tilt-card" loading="lazy" decoding="async">
-
-    <div>
-      <p>
-        MBAskills is a creative digital studio founded by Muhammad Ahsan with a focused mission:
-        help businesses communicate a stronger online presence through strategic design, persuasive messaging,
-        and modern development standards that improve both visual authority and conversion quality.
-      </p>
-
-      <p>
-        We work with brands that need more than just beautiful graphics; they need digital assets that support sales goals,
-        improve user confidence, and create consistency across websites, ads, landing pages, and social content.
-        Our approach is collaborative, transparent, and built around results you can track.
-      </p>
-    </div>
-  </div>
-</section>
-
-<section class="benefits">
-  <h2>Why Work With MBAskills</h2>
-
-  <div class="benefit-grid">
-    <div class="benefit-card tilt-card">
-      <h3>Professional Quality</h3>
-      <p>Every project uses a premium visual system with structured spacing, typography hierarchy, and conversion-first layout decisions.</p>
-    </div>
-
-    <div class="benefit-card tilt-card">
-      <h3>Fast Delivery</h3>
-      <p>Clear milestones and production workflow allow us to ship faster while maintaining consistency and attention to detail.</p>
-    </div>
-
-    <div class="benefit-card tilt-card">
-      <h3>Creative Direction</h3>
-      <p>We bring concept depth and strong design logic so your brand feels distinctive instead of generic or template-based.</p>
-    </div>
-
-    <div class="benefit-card tilt-card">
-      <h3>Client Focus</h3>
-      <p>Each decision is aligned with your business objective, audience behavior, and desired revenue impact.</p>
-    </div>
-  </div>
-</section>
-
-<section id="services" class="services">
-  <h2>Services</h2>
-  <p class="section-intro">
-    A complete creative and development stack for brands that want one reliable partner for identity, marketing visuals,
-    ecommerce growth, and website performance upgrades.
-  </p>
-
-  <div class="service-grid">
-    <div class="service-card tilt-card">
-      <i class="fas fa-palette"></i>
-      <h3>Graphic Design</h3>
-      <p>Brand identities, logo systems, product visuals, and social creatives designed for premium market positioning.</p>
-    </div>
-
-    <div class="service-card tilt-card">
-      <i class="fas fa-robot"></i>
-      <h3>AI Developer</h3>
-      <p>AI-powered solutions, smart automations, chatbot workflows, and productivity systems for modern businesses.</p>
-    </div>
-
-    <div class="service-card tilt-card">
-      <i class="fas fa-store"></i>
-      <h3>Shopify Development</h3>
-      <p>Conversion-oriented store setups with cleaner product presentation, trust sections, and optimized customer journeys.</p>
-    </div>
-
-    <div class="service-card tilt-card">
-      <i class="fas fa-globe"></i>
-      <h3>WordPress Websites</h3>
-      <p>Responsive business websites with improved speed, SEO fundamentals, and professional content architecture.</p>
-    </div>
-
-    <div class="service-card tilt-card">
-      <i class="fas fa-chart-line"></i>
-      <h3>SEO Optimization</h3>
-      <p>Technical SEO, on-page optimization, schema setup, and content structure improvements to boost search visibility.</p>
-    </div>
-
-    <div class="service-card tilt-card">
-      <i class="fas fa-code"></i>
-      <h3>HTML, CSS & JavaScript Websites</h3>
-      <p>Fast, responsive, and modern custom-coded websites built for performance, scalability, and conversion goals.</p>
-    </div>
-  </div>
-</section>
-
-<section id="portfolio" class="portfolio">
-  <h2>Portfolio</h2>
-  <p class="section-intro">
-    A sample of current projects focused on clean visual communication, conversion-aware layouts,
-    and brand presentation that supports trust and purchase decisions.
-  </p>
-
-  <div class="samples-showcase" id="portfolio-samples">
-    <a class="sample-card sample-card-link tilt-card" id="sample-shopify-store" href="samples.html#shopify-design">
-      <span class="sample-tag">E-Commerce</span>
-      <h3>Shopify Store Design</h3>
-      <p>Premium, fast, and conversion-first Shopify stores with sales-focused product pages and trust blocks.</p>
-    </a>
-    <a class="sample-card sample-card-link tilt-card" id="sample-wordpress-store" href="samples.html#wordpress-design">
-      <span class="sample-tag">E-Commerce</span>
-      <h3>WordPress + WooCommerce Store</h3>
-      <p>Scalable WooCommerce websites with clean category structure, checkout UX, and SEO-ready setup.</p>
-    </a>
-    <a class="sample-card sample-card-link tilt-card" id="sample-html-store" href="samples.html#html-design">
-      <span class="sample-tag">E-Commerce</span>
-      <h3>Custom HTML/CSS Storefront</h3>
-      <p>Custom-coded storefront layouts for brands needing unique design freedom and fast loading speed.</p>
-    </a>
-    <a class="sample-card sample-card-link tilt-card" id="sample-pos-software" href="samples.html#pos-design">
-      <span class="sample-tag">Business</span>
-      <h3>POS Software UI</h3>
-      <p>Modern POS interfaces with cashier-first workflows, readable dashboards, and better checkout experience.</p>
-    </a>
-    <a class="sample-card sample-card-link tilt-card" id="sample-multipurpose-sites" href="samples.html#multipurpose-design">
-      <span class="sample-tag">Multi-Purpose</span>
-      <h3>Multi-Purpose Websites</h3>
-      <p>Business websites for agencies, restaurants, education, healthcare, and service brands.</p>
-    </a>
-    <a class="sample-card sample-card-link tilt-card" id="sample-mobile-apps" href="samples.html#mobile-app-design">
-      <span class="sample-tag">Mobile</span>
-      <h3>Mobile App Design</h3>
-      <p>Attractive app UI/UX screens focused on onboarding, engagement, and smooth user flow.</p>
-    </a>
-  </div>
-
-  <div class="samples-cta">
-    <p>Want a store or app like these samples? Let&apos;s build your project next.</p>
-    <a href="#contact" class="btn-primary">Contact Me Now</a>
-  </div>
-
-  <div class="portfolio-highlights">
-    <article class="highlight-card tilt-card">
-      <h3>E-Commerce Growth Project</h3>
-      <p>Designed and developed a conversion-focused online store with improved navigation, clearer product hierarchy, and stronger checkout trust signals.</p>
-      <span>Result Focus: Better user journey + higher purchase intent</span>
-    </article>
-    <article class="highlight-card tilt-card">
-      <h3>Business Website Redesign</h3>
-      <p>Built a modern, responsive website with strong content structure, improved speed, and SEO-friendly technical setup.</p>
-      <span>Result Focus: Stronger search presence + better lead quality</span>
-    </article>
-    <article class="highlight-card tilt-card">
-      <h3>AI + Automation Integration</h3>
-      <p>Created workflow automation and chatbot-ready experiences to reduce manual tasks and improve response speed.</p>
-      <span>Result Focus: Better efficiency + faster customer interaction</span>
-    </article>
-  </div>
-
-  <div class="portfolio-actions">
-    <a href="samples.html" class="btn-secondary">View Full Samples</a>
-  </div>
-</section>
-
-<section class="features">
-  <h2>How We Deliver Results</h2>
-  <p class="section-intro">
-    A clear, step-by-step process to launch high-performing websites with better UX, stronger SEO, and faster conversion.
-  </p>
-  <div class="feature-grid process-grid">
-    <article class="feature-card tilt-card">
-      <h3>1. Strategy + SEO Audit</h3>
-      <p>We map your goals, target audience, and keyword opportunities before design starts.</p>
-    </article>
-    <article class="feature-card tilt-card">
-      <h3>2. UI/UX + Content Structure</h3>
-      <p>We create modern layouts with strong hierarchy, clean CTAs, and intent-based section flow.</p>
-    </article>
-    <article class="feature-card tilt-card">
-      <h3>3. Fast Development</h3>
-      <p>We build responsive Shopify, WordPress, or custom HTML/CSS/JavaScript websites optimized for speed.</p>
-    </article>
-    <article class="feature-card tilt-card">
-      <h3>4. Launch + Optimization</h3>
-      <p>After launch, we improve SEO, refine conversion points, and scale based on data.</p>
-    </article>
-  </div>
-</section>
-
-<section class="faq-section" id="faq">
-  <h2>Frequently Asked Questions</h2>
-  <div class="faq-grid">
-    <details class="faq-item">
-      <summary>Do you build Shopify and WordPress websites?</summary>
-      <p>Yes. We build and optimize both Shopify stores and WordPress websites based on your business model.</p>
-    </details>
-    <details class="faq-item">
-      <summary>Do you provide SEO services?</summary>
-      <p>Yes. We handle technical SEO, on-page optimization, site structure, and schema setup for better ranking potential.</p>
-    </details>
-    <details class="faq-item">
-      <summary>Can you build custom HTML, CSS, and JavaScript websites?</summary>
-      <p>Absolutely. We create fast, modern, fully custom coded websites with clean UI and scalable structure.</p>
-    </details>
-    <details class="faq-item">
-      <summary>Do you provide AI automation solutions?</summary>
-      <p>Yes. We design AI-powered workflows and automation systems to improve response time and productivity.</p>
-    </details>
-  </div>
-</section>
-
-<section id="contact" class="contact">
-  <h2>Start Your Project</h2>
-  <p>
-    If you want your brand to look more premium, communicate more clearly, and convert more visitors,
-    let's plan your next website or creative campaign together. Share your goals and timeline,
-    and we will propose the best path for design, development, and launch.
-  </p>
-
-  <div class="contact-buttons">
-    <a href="https://wa.me/+923264088500" class="floating-whatsapp" aria-label="Chat on WhatsApp">
-      <i class="fab fa-whatsapp"></i>
-    </a>
-
-    <a href="mailto:mbinahsan5@gmail.com" class="btn-email">
-      <i class="fas fa-envelope"></i> Send Email
-    </a>
-  </div>
-</section>
-
-<footer>
-  <p>&copy; 2022 MBAskills - Creative Digital Studio</p>
-</footer>
-
-<script src="script.js?v=9" defer></script>
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@graph": [
-    {
-      "@type": "ProfessionalService",
-      "name": "MBAskills",
-      "url": "https://mbaskills.com/",
-      "description": "Creative web design and development services including Shopify, WordPress, SEO, AI solutions, and custom-coded websites.",
-      "areaServed": "Global",
-      "serviceType": [
-        "Shopify Development",
-        "WordPress Development",
-        "SEO Optimization",
-        "AI Developer Services",
-        "HTML CSS JavaScript Website Development"
-      ]
-    },
-    {
-      "@type": "FAQPage",
-      "mainEntity": [
-        {
-          "@type": "Question",
-          "name": "Do you build Shopify and WordPress websites?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Yes. We build and optimize both Shopify stores and WordPress websites based on your business model."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "Do you provide SEO services?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Yes. We handle technical SEO, on-page optimization, site structure, and schema setup for better ranking potential."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "Can you build custom HTML, CSS, and JavaScript websites?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Absolutely. We create fast, modern, fully custom coded websites with clean UI and scalable structure."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "Do you provide AI automation solutions?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Yes. We design AI-powered workflows and automation systems to improve response time and productivity."
-          }
-        }
-      ]
-    }
-  ]
-}
-</script>
+  <script src="script.js" defer></script>
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 

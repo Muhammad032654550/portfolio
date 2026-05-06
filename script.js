@@ -1,260 +1,174 @@
-const sections = document.querySelectorAll("section");
-const preloader = document.getElementById("preloader");
-const progressBar = document.getElementById("scrollProgress");
-const toTopBtn = document.getElementById("toTopBtn");
-const tiltCards = document.querySelectorAll(".tilt-card");
-const counters = document.querySelectorAll(".counter");
-const heroVisual = document.querySelector(".hero-right img");
-const orbLeft = document.querySelector(".orb-left");
-const orbRight = document.querySelector(".orb-right");
-const hasFinePointer = window.matchMedia("(pointer: fine)").matches;
-const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+﻿const nav = document.getElementById('nav');
+const menuToggle = document.getElementById('menuToggle');
+const siteHeader = document.getElementById('siteHeader');
+const cursor3d = document.getElementById('cursor3d');
+const hero3dCard = document.getElementById('hero3dCard');
+const preloader = document.getElementById('preloader');
 
-const hidePreloader = () => {
-  if (!preloader || preloader.classList.contains("hidden")) {
-    return;
-  }
-  preloader.classList.add("hidden");
-  window.setTimeout(() => preloader.remove(), 500);
-};
+let scrollProgress = document.getElementById('scrollProgress');
+if (!scrollProgress) {
+  scrollProgress = document.createElement('div');
+  scrollProgress.id = 'scrollProgress';
+  scrollProgress.className = 'scroll-progress';
+  document.body.prepend(scrollProgress);
+}
 
-document.addEventListener("DOMContentLoaded", () => {
-  window.setTimeout(hidePreloader, 1600);
+menuToggle?.addEventListener('click', () => nav?.classList.toggle('open'));
+document.querySelectorAll('.nav a').forEach((a) => a.addEventListener('click', () => nav?.classList.remove('open')));
+
+window.addEventListener('load', () => {
+  setTimeout(() => preloader?.classList.add('hide'), 120);
 });
 
-window.addEventListener("load", hidePreloader, { once: true });
-
-const updateScrollUI = () => {
-  const top = window.scrollY;
-  const height = document.documentElement.scrollHeight - window.innerHeight;
-  const progress = height > 0 ? (top / height) * 100 : 0;
-
-  if (progressBar) {
-    progressBar.style.width = `${progress}%`;
+const onScrollUI = () => {
+  if (siteHeader) {
+    if (window.scrollY > 12) siteHeader.classList.add('scrolled');
+    else siteHeader.classList.remove('scrolled');
   }
+  const max = document.documentElement.scrollHeight - window.innerHeight;
+  const ratio = max > 0 ? (window.scrollY / max) * 100 : 0;
+  scrollProgress.style.width = `${Math.min(100, Math.max(0, ratio))}%`;
+};
+window.addEventListener('scroll', onScrollUI, { passive: true });
+onScrollUI();
 
-  if (toTopBtn) {
-    toTopBtn.classList.toggle("visible", top > 320);
-  }
+if (cursor3d && !window.matchMedia('(pointer: coarse)').matches) {
+  window.addEventListener('mousemove', (event) => {
+    cursor3d.style.left = `${event.clientX}px`;
+    cursor3d.style.top = `${event.clientY}px`;
+  }, { passive: true });
+
+  document.querySelectorAll('a, button, .tilt').forEach((el) => {
+    el.addEventListener('mouseenter', () => cursor3d.classList.add('active'));
+    el.addEventListener('mouseleave', () => cursor3d.classList.remove('active'));
+  });
+}
+
+if (hero3dCard && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+  hero3dCard.addEventListener('mousemove', (event) => {
+    const bounds = hero3dCard.getBoundingClientRect();
+    const x = (event.clientX - bounds.left) / bounds.width;
+    const y = (event.clientY - bounds.top) / bounds.height;
+    const rotY = (x - 0.5) * 12;
+    const rotX = (0.5 - y) * 12;
+    hero3dCard.style.transform = `rotateX(${rotX}deg) rotateY(${rotY}deg) translateZ(6px)`;
+  });
+  hero3dCard.addEventListener('mouseleave', () => {
+    hero3dCard.style.transform = 'rotateX(0deg) rotateY(0deg) translateZ(0)';
+  });
+}
+
+const revealObserver = new IntersectionObserver((entries) => {
+  entries.forEach((entry) => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('show');
+      revealObserver.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.14 });
+document.querySelectorAll('.reveal').forEach((el) => revealObserver.observe(el));
+
+const animateCounters = () => {
+  document.querySelectorAll('[data-count]').forEach((el) => {
+    const target = parseFloat(el.dataset.count || '0');
+    if (el.dataset.done === '1' || Number.isNaN(target)) return;
+    el.dataset.done = '1';
+    const duration = 700;
+    const start = performance.now();
+    const tick = (now) => {
+      const progress = Math.min((now - start) / duration, 1);
+      const value = target * progress;
+      if (target === 4.9) el.textContent = `${value.toFixed(1)}/5`;
+      else if (target === 92 || target === 38 || target === 97 || target === 86) el.textContent = `${Math.round(value)}%`;
+      else el.textContent = `${Math.round(value)}+`;
+      if (progress < 1) requestAnimationFrame(tick);
+    };
+    requestAnimationFrame(tick);
+  });
 };
 
-let scrollTicking = false;
-window.addEventListener(
-  "scroll",
-  () => {
-    if (scrollTicking) {
-      return;
-    }
-    scrollTicking = true;
-    window.requestAnimationFrame(() => {
-      updateScrollUI();
-      scrollTicking = false;
-    });
-  },
-  { passive: true }
-);
-
-updateScrollUI();
-
-if (sections.length > 0 && "IntersectionObserver" in window) {
-  const sectionObserver = new IntersectionObserver(
-    (entries, observer) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add("show");
-          observer.unobserve(entry.target);
-        }
-      });
-    },
-    { threshold: 0.2, rootMargin: "0px 0px -8% 0px" }
-  );
-
-  sections.forEach((section) => sectionObserver.observe(section));
-}
-
-if (toTopBtn) {
-  toTopBtn.addEventListener("click", () => {
-    window.scrollTo({ top: 0, behavior: "smooth" });
-  });
-}
-
-if (counters.length > 0) {
-  const counterObserver = new IntersectionObserver(
-    (entries, observer) => {
-      entries.forEach((entry) => {
-        if (!entry.isIntersecting) {
-          return;
-        }
-
-        const el = entry.target;
-        const target = Number(el.dataset.target || 0);
-        const isPercent = el.classList.contains("percent");
-
-        if (prefersReducedMotion) {
-          el.textContent = isPercent ? `${target}%` : `${target}+`;
-          observer.unobserve(el);
-          return;
-        }
-
-        let current = 0;
-        const step = Math.max(1, Math.ceil(target / 45));
-
-        const timer = window.setInterval(() => {
-          current += step;
-          if (current >= target) {
-            current = target;
-            window.clearInterval(timer);
-          }
-          el.textContent = isPercent ? `${current}%` : `${current}+`;
-        }, 24);
-
-        observer.unobserve(el);
-      });
-    },
-    { threshold: 0.4 }
-  );
-
-  counters.forEach((counter) => counterObserver.observe(counter));
-}
-
-if (hasFinePointer && !prefersReducedMotion) {
-  tiltCards.forEach((card) => {
-    const strong = card.classList.contains("tilt-strong");
-    const tiltLimit = strong ? 18 : 12;
-    const depth = strong ? -10 : -6;
-
-    card.addEventListener("mousemove", (event) => {
-      const rect = card.getBoundingClientRect();
-      const x = event.clientX - rect.left;
-      const y = event.clientY - rect.top;
-      const rotateY = (x / rect.width - 0.5) * tiltLimit;
-      const rotateX = (0.5 - y / rect.height) * tiltLimit;
-
-      card.style.transform = `perspective(950px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateY(${depth}px)`;
-    });
-
-    card.addEventListener("mouseleave", () => {
-      card.style.transform = "perspective(950px) rotateX(0deg) rotateY(0deg) translateY(0)";
-    });
-  });
-
-  let mouseTicking = false;
-  let mouseX = 0;
-  let mouseY = 0;
-
-  const applyParallax = () => {
-    const xRatio = mouseX / window.innerWidth - 0.5;
-    const yRatio = mouseY / window.innerHeight - 0.5;
-
-    if (heroVisual) {
-      heroVisual.style.transform = `translate3d(${xRatio * 10}px, ${yRatio * 10}px, 0)`;
-    }
-
-    if (orbLeft) {
-      orbLeft.style.transform = `translate3d(${xRatio * -18}px, ${yRatio * -12}px, 0)`;
-    }
-
-    if (orbRight) {
-      orbRight.style.transform = `translate3d(${xRatio * 18}px, ${yRatio * 14}px, 0)`;
-    }
-
-    mouseTicking = false;
-  };
-
-  window.addEventListener(
-    "mousemove",
-    (event) => {
-      mouseX = event.clientX;
-      mouseY = event.clientY;
-
-      if (mouseTicking) {
-        return;
+const kpi = document.querySelector('.kpi-strip');
+if (kpi) {
+  const kpiObserver = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        animateCounters();
+        kpiObserver.disconnect();
       }
-
-      mouseTicking = true;
-      window.requestAnimationFrame(applyParallax);
-    },
-    { passive: true }
-  );
-}
-
-const navbars = document.querySelectorAll(".navbar");
-
-const resetNavbar = (bar) => {
-  const toggle = bar.querySelector(".nav-toggle");
-  const icon = toggle ? toggle.querySelector("i") : null;
-  bar.classList.remove("open");
-  if (toggle) {
-    toggle.setAttribute("aria-expanded", "false");
-  }
-  if (icon) {
-    icon.classList.add("fa-bars");
-    icon.classList.remove("fa-xmark");
-  }
-};
-
-navbars.forEach((bar) => {
-  const toggle = bar.querySelector(".nav-toggle");
-  const menu = bar.querySelector(".nav-menu");
-
-  if (!toggle || !menu) {
-    return;
-  }
-
-  toggle.addEventListener("click", (event) => {
-    event.stopPropagation();
-    const isOpen = bar.classList.toggle("open");
-    toggle.setAttribute("aria-expanded", String(isOpen));
-
-    const icon = toggle.querySelector("i");
-    if (icon) {
-      icon.classList.toggle("fa-bars", !isOpen);
-      icon.classList.toggle("fa-xmark", isOpen);
-    }
-
-    document.body.classList.toggle("menu-open", isOpen);
-  });
-
-  menu.querySelectorAll("a").forEach((link) => {
-    link.addEventListener("click", () => {
-      resetNavbar(bar);
-      document.body.classList.remove("menu-open");
     });
-  });
-});
+  }, { threshold: 0.3 });
+  kpiObserver.observe(kpi);
+}
 
-document.addEventListener("click", (event) => {
-  navbars.forEach((bar) => {
-    if (bar.classList.contains("open") && !bar.contains(event.target)) {
-      resetNavbar(bar);
-      document.body.classList.remove("menu-open");
-    }
-  });
-});
+const testimonialRail = document.getElementById('testimonialsRail');
+const reviewsPrev = document.getElementById('reviewsPrev');
+const reviewsNext = document.getElementById('reviewsNext');
+if (testimonialRail) {
+  const step = () => Math.min(360, testimonialRail.clientWidth * 0.9);
+  reviewsNext?.addEventListener('click', () => testimonialRail.scrollBy({ left: step(), behavior: 'smooth' }));
+  reviewsPrev?.addEventListener('click', () => testimonialRail.scrollBy({ left: -step(), behavior: 'smooth' }));
+}
 
-window.addEventListener("resize", () => {
-  if (window.innerWidth > 992) {
-    navbars.forEach((bar) => resetNavbar(bar));
-    document.body.classList.remove("menu-open");
-  }
-});
-
-window.addEventListener("keydown", (event) => {
-  if (event.key === "Escape") {
-    navbars.forEach((bar) => resetNavbar(bar));
-    document.body.classList.remove("menu-open");
-  }
-});
-
-const portfolioToggleBtn = document.querySelector(".portfolio-toggle-btn");
-const hiddenPortfolioItems = document.querySelectorAll(".portfolio-more");
-
-if (portfolioToggleBtn && hiddenPortfolioItems.length > 0) {
-  portfolioToggleBtn.addEventListener("click", () => {
-    hiddenPortfolioItems.forEach((item) => item.classList.add("show"));
-    portfolioToggleBtn.setAttribute("aria-expanded", "true");
-    portfolioToggleBtn.textContent = "All Images Shown";
-    portfolioToggleBtn.disabled = true;
-    portfolioToggleBtn.classList.add("is-disabled");
+function loadScript(src) {
+  return new Promise((resolve, reject) => {
+    const s = document.createElement('script');
+    s.src = src;
+    s.defer = true;
+    s.onload = resolve;
+    s.onerror = reject;
+    document.head.appendChild(s);
   });
 }
+
+async function initGsapAnimations() {
+  const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const isMobile = window.matchMedia('(max-width: 980px)').matches;
+  if (reducedMotion || isMobile) return;
+
+  try {
+    await loadScript('https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js');
+    await loadScript('https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js');
+    if (!window.gsap || !window.ScrollTrigger) return;
+
+    gsap.registerPlugin(ScrollTrigger);
+    gsap.from('.site-header', { y: -30, opacity: 0, duration: 0.7, ease: 'power2.out' });
+    gsap.from('.hero-copy > *', { y: 28, opacity: 0, duration: 0.7, stagger: 0.12, ease: 'power2.out', delay: 0.1 });
+    gsap.from('.hero-media', { x: 28, opacity: 0, duration: 0.8, ease: 'power2.out', delay: 0.2 });
+
+    document.querySelectorAll('.section').forEach((section) => {
+      gsap.from(section.querySelectorAll('h2, h3, p, article, img, .btn, li, video'), {
+        scrollTrigger: { trigger: section, start: 'top 78%' },
+        y: 20,
+        opacity: 0,
+        duration: 0.5,
+        stagger: 0.04,
+        ease: 'power2.out'
+      });
+    });
+  } catch (_) {
+    // Ignore animation loading errors to keep UX fast.
+  }
+}
+
+if ('requestIdleCallback' in window) {
+  requestIdleCallback(() => initGsapAnimations(), { timeout: 1600 });
+} else {
+  setTimeout(initGsapAnimations, 900);
+}
+
+const contactForm = document.getElementById('contactForm');
+const contactEmail = document.getElementById('contactEmail');
+const contactReplyTo = document.getElementById('contactReplyTo');
+const contactSubmitBtn = document.getElementById('contactSubmitBtn');
+if (contactForm) {
+  contactForm.addEventListener('submit', () => {
+    if (contactEmail && contactReplyTo) {
+      contactReplyTo.value = contactEmail.value.trim();
+    }
+    if (contactSubmitBtn) {
+      contactSubmitBtn.textContent = 'Sending...';
+      contactSubmitBtn.disabled = true;
+    }
+  });
+}
+
